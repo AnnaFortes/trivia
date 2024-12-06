@@ -23,6 +23,12 @@ body {
     text-align: center;
 }
 
+main {
+    display: block;
+    margin: auto;
+    width: 80vw;
+}
+
 .section {
     padding: 0.5rem 2rem 1rem 2rem;
 }
@@ -48,12 +54,29 @@ button, input[type="submit"] {
     text-align: center;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     vertical-align: middle;
+    
 }
 
 input {
-    padding: 5px;
+    padding: 8px 30px;
+    margin: auto;
     margin-right: 5px;
-    border-radius: 5px;
+    margin-bottom: 8px;
+    background-color: #D4E1EB;
+    border-radius: 3px;
+    text-decoration: transparent;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    }
+
+input:hover {
+    background-color: #a6b2bb;
+    cursor: pointer;
+}
+
+input[type="number"]:hover {
+    cursor: text;
 }
 
 input[type="text"] {

@@ -11,32 +11,35 @@
     <div class="header">
         <h1>Trivia!</h1>
     </div>
-
-    <div id="container">
-        <div class="section">
-            <h2>Part 1: Multiple Choice </h2>
-            <hr>
-            <h3>Qual é a capital da Espanha?   </h3>
-            <div id="escolha">                
-                <input class="f" type="button" value="Paris">
-                <input class="f" type="button" value="Barcelona">
-                <input class="f" type="button" value="Lisboa">
-                <input class="v" type="button" value="Madri">
-                <input class="f" type="button" value="Brasilia">
+<main>
+        <div id="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Qual é a capital da Espanha? Clique no botão da alternativa correta! </h3>
+                <div id="escolha">
+                    <input class="f" type="button" value="Opção 1: Paris">
+                    <input class="f" type="button" value="Opção 2: Barcelona">
+                    <input class="f" type="button" value="Opção 3: Lisboa">
+                    <input class="v" type="button" value="Opção 4: Madri">
+                    <input class="f" type="button" value="Opção 5: Brasilia">
+                </div>
+            </div>
+    
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Resolva essa conta simples: 5 + 5 = ?</h3>
+                <div id="soma">
+                    <input type="number" name="conta" id="iconta"> <input type="button" id="verificarBt"  value="Verificar"></div>
             </div>
         </div>
-
-        <div class="section">
-            <h2>Part 2: Free Response</h2>
-            <hr>
-            <h3>Resolva essa conta simples: 5 + 5 = ?</h3>
-            <input type="number" name="conta" id="iconta"> <input type="button" value="Verificar Resposta">
-        </div>
-    </div>
+</main>
         <script>
             let escolhas = document.querySelector('div#escolha')
             let inputs = document.querySelectorAll('input') //seleciona tds os inputs do container
             escolhas.addEventListener('click', clicar)
+
             function clicar(event) {
                 let botao = event.target
                 let textoOriginal = botao.value
@@ -54,7 +57,38 @@
                     botao.style.background = ''
                 }, 1000)
             }
-            
+
+        /* 
+        div#soma
+        input type=number id=iconta
+        input type=button value=verificar id= verificarBt
+        */ 
+            let somar = document.querySelector('div#soma')
+            let bot = document.querySelector('input#verificarBt')
+
+            somar.addEventListener('click', verificar)
+
+            function verificar(event) {
+            let conta = Number(document.querySelector('input#iconta').value)
+            let botao = event.target
+
+            let textoOriginal = botao.value
+            let corOriginal = botao.style.backgroundColor
+
+            if (conta === 10) {
+                botao.value = 'Correto'
+                botao.style.background = '#008000c2'
+            } else {
+                botao.value = 'Incorreto'
+                botao.style.background = '#ff0000c2'
+            }
+
+            setTimeout(() => {
+                botao.value = textoOriginal
+                botao.style.backgroundColor = corOriginal
+            }, 1000)
+            }
+
         </script>
 </body>
 </html>
